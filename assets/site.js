@@ -85,3 +85,37 @@ function gtInit(){new google.translate.TranslateElement({pageLanguage:'fr',inclu
   sel.addEventListener('change',function(){apply(this.value)});
   if(m&&m[1]==='ar')document.documentElement.dir='rtl';
 })();
+
+
+/* carte des sociétés */
+(function(){
+  var map=document.querySelector('.afmap'); if(!map)return;
+  var cards=[].slice.call(document.querySelectorAll('.soc'));
+  var T=document.getElementById('mpT'),D=document.getElementById('mpD'),Lst=document.getElementById('mpL');
+  var deft=[T.textContent,D.textContent];
+  function norm(t){return t.normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase()}
+  function show(p){
+    var c=p.getAttribute('data-c');
+    var found=cards.filter(function(k){return norm(k.querySelector('.cty').textContent).indexOf(norm(c))>-1});
+    T.textContent=c;
+    D.textContent=p.getAttribute('data-l')==='2'?'Société nationale identifiée — adhésion au CIAP à confirmer.':'Contacts en cours d’identification.';
+    Lst.innerHTML=found.map(function(k){return '<div>'+k.querySelector('b').innerHTML+'<small>'+k.querySelector('span').innerHTML+'</small></div>'}).join('');
+  }
+  function reset(){T.textContent=deft[0];D.textContent=deft[1];Lst.innerHTML='';}
+  var on=[].slice.call(map.querySelectorAll('.cty[data-c]'));
+  document.getElementById('nS').textContent=on.length;
+  document.getElementById('nN').textContent=map.querySelectorAll('.cty.on2').length;
+  var locked=null;
+  on.forEach(function(p){
+    p.addEventListener('mouseenter',function(){if(!locked)show(p)});
+    p.addEventListener('mouseleave',function(){if(!locked)reset()});
+    p.addEventListener('click',function(){
+      if(locked===p){locked=null;p.classList.remove('sel');reset();return;}
+      if(locked)locked.classList.remove('sel');
+      locked=p;p.classList.add('sel');show(p);
+    });
+  });
+  var sf=document.getElementById('sfilt');
+  if(sf)sf.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;var r=b.dataset.r;
+    map.querySelectorAll('.cty').forEach(function(p){p.classList.toggle('dim',r!=='all'&&r!=='pan'&&p.getAttribute('data-r')!==r)});});
+})();
