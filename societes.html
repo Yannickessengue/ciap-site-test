@@ -20,7 +20,7 @@
       <li><a href="actualites.html">Actualités</a></li>
       <li><a href="societes.html" class="on">Sociétés membres</a></li>
       <li><a href="statuts.html">Statuts</a></li>
-      <li><a href="congres.html">Congrès</a></li>
+      <li><a href="tokyo-2028.html">Tokyo 2028</a></li>
       <li><a href="revue.html">Revue</a></li>
       <li><a href="enseignement.html">Enseignement</a></li>
       <li><a href="documents.html">Documents</a></li>
@@ -37,7 +37,7 @@
 <main id="top">
 <section class="phero">
   <div class="wrap">
-    <div class="eyebrow">Le réseau</div>
+    <div class="eyebrow">Pour une fédération africaine de la philosophie</div>
     <h1>Sociétés <em>membres</em></h1>
     <p class="lead">Fédérer les sociétés nationales de philosophie, francophones et anglophones, en vue d’une présence africaine commune au Congrès mondial de Tokyo, en 2028.</p>
     <div class="crumbs"><a href="index.html">Accueil</a> · Sociétés membres</div>
@@ -91,7 +91,27 @@
 <div class="soc" data-r="pan"><div class="cty">Francophonie</div><b>Association des sociétés de philosophie de langue française (ASPLF)</b><span>Fédération internationale réunissant plusieurs sociétés africaines.</span><div class="st"><span class="tag c">Adhésion à confirmer</span></div></div>
 </div></div>
 
-    <div class="callout"><div><h3>Votre société n’apparaît pas, ou ses informations sont incomplètes ?</h3><p>Signalez-la au secrétariat : nom, pays, responsable, site web. Les sociétés qui le souhaitent peuvent demander leur adhésion au CIAP.</p></div><a class="btn" href="adherer.html">Inscrire une société</a></div>
+    <div class="reg" id="enregistrer">
+      <div class="reg-l">
+        <div class="eyebrow" style="color:#FFD58A">Recensement des fédérations</div>
+        <h2>Enregistrer votre fédération <em>auprès du CIAP</em></h2>
+        <p>Fédérations, sociétés et associations nationales de philosophie : faites-vous connaître du CIAP pour figurer dans l’annuaire, recevoir les informations sur Tokyo 2028 et participer à la fédération.</p>
+        <p class="en" lang="en"><b>English:</b> national philosophical associations may register here; the form can be completed in English. Anglophone associations are also welcome to join through the <a href="https://africanphilosophysociety.org/" target="_blank" rel="noopener">African Philosophy Society</a>.</p>
+      </div>
+      <form id="regf" class="reg-f">
+        <div class="row"><div><label for="r1">Nom de la société / fédération</label><input id="r1" required></div><div><label for="r2">Sigle</label><input id="r2"></div></div>
+        <div class="row"><div><label for="r3">Pays</label><input id="r3" required></div><div><label for="r4">Année de fondation</label><input id="r4" inputmode="numeric"></div></div>
+        <div class="row"><div><label for="r5">Président·e</label><input id="r5"></div><div><label for="r6">Courriel de contact</label><input id="r6" type="email" required></div></div>
+        <div class="row"><div><label for="r7">Site web</label><input id="r7" type="url" placeholder="https://"></div><div><label for="r8">Nombre de membres</label><input id="r8" inputmode="numeric"></div></div>
+        <div class="row"><div><label for="r9">Langue(s) de travail</label><input id="r9" placeholder="français, anglais, portugais, arabe…"></div><div><label for="r10">Membre de la FISP ?</label><select id="r10"><option>Je ne sais pas</option><option>Oui</option><option>Non</option></select></div></div>
+        <label for="r11">Projets pour Tokyo 2028 (panels, tables rondes…)</label><textarea id="r11" rows="3"></textarea>
+        <label class="consent"><input type="checkbox" id="r12" required><span>J’accepte que ces informations soient traitées par le CIAP et publiées dans l’annuaire (nom, pays, site web), conformément à la <a href="confidentialite.html">politique de confidentialité</a>.</span></label>
+        <div style="margin-top:22px"><button class="btn red" type="submit">Envoyer l’enregistrement</button></div>
+        <p class="note">L’envoi ouvre votre messagerie avec un courriel pré-rempli adressé à ciap.philosophie@gmail.com.</p>
+        <div class="ok" id="regok">Merci : votre messagerie s’est ouverte avec le courriel d’enregistrement. Il ne reste qu’à l’envoyer.</div>
+      </form>
+    </div>
+    <div class="callout"><div><h3>Votre société n’apparaît pas, ou ses informations sont incomplètes ?</h3><p>Signalez-la au secrétariat : nom, pays, responsable, site web. Les sociétés qui le souhaitent peuvent demander leur adhésion au CIAP.</p></div><a class="btn" href="#enregistrer">Enregistrer une fédération</a></div>
   </div>
 </section>
 <div class="social">
@@ -104,10 +124,10 @@
 <footer id="contact">
   <div class="wrap fgrid">
     <div class="fleft">
-      <div class="fbrand"><img src="assets/logo-white.png" alt="CIAP"><div><p>Conseil Inter-Africain de Philosophie<br>Inter-African Council for Philosophy<br>Fédération des sociétés africaines de philosophie</p><a class="fbbig" href="https://www.facebook.com/profile.php?id=61586312145628" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M14 8h3V4h-3c-2.8 0-5 2.2-5 5v2H7v4h2v9h4v-9h3l1-4h-4V9c0-.6.4-1 1-1z"/></svg>Suivre le CIAP sur Facebook</a></div></div>
+      <div class="fbrand"><img src="assets/logo-white.png" alt="CIAP"><div><p>Conseil Inter-Africain de Philosophie<br>Inter-African Council for Philosophy<br>Pour une fédération africaine de la philosophie</p><a class="fbbig" href="https://www.facebook.com/profile.php?id=61586312145628" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M14 8h3V4h-3c-2.8 0-5 2.2-5 5v2H7v4h2v9h4v-9h3l1-4h-4V9c0-.6.4-1 1-1z"/></svg>Suivre le CIAP sur Facebook</a></div></div>
       <div class="cols">
         <div><h4>Le CIAP</h4><ul><li><a href="le-ciap.html">Histoire &amp; gouvernance</a></li><li><a href="societes.html">Sociétés membres</a></li><li><a href="statuts.html">Statuts</a></li><li><a href="documents.html">Documents</a></li><li><a href="partenaires.html">Partenaires</a></li></ul></div>
-        <div><h4>Activités</h4><ul><li><a href="actualites.html">Actualités &amp; agenda</a></li><li><a href="congres.html">Congrès</a></li><li><a href="revue.html">Revue Conséquence</a></li><li><a href="enseignement.html">Enseignement</a></li><li><a href="medias.html">Médias</a></li></ul></div>
+        <div><h4>Activités</h4><ul><li><a href="actualites.html">Actualités &amp; agenda</a></li><li><a href="tokyo-2028.html">Cap Tokyo 2028</a></li><li><a href="congres.html">Congrès &amp; rencontres</a></li><li><a href="revue.html">Revue Conséquence</a></li><li><a href="enseignement.html">Enseignement</a></li><li><a href="medias.html">Médias</a></li></ul></div>
         <div><h4>Contact</h4><ul><li>ciap.philosophie@gmail.com</li><li>Secrétariat général</li><li><a href="adherer.html">Adhérer</a></li><li><a href="espace-membres.html">Espace membres</a></li><li><a href="https://africanphilosophysociety.org/" target="_blank" rel="noopener">African Philosophy Society</a></li></ul></div>
       </div>
     </div>

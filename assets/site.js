@@ -122,3 +122,14 @@ function gtInit(){new google.translate.TranslateElement({pageLanguage:'fr',inclu
 
 /* filtre actualités */
 (function(){var nf=document.getElementById('nfilt');if(!nf)return;nf.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;var t=b.dataset.t;nf.querySelectorAll('button').forEach(function(x){x.classList.toggle('on',x===b)});document.querySelectorAll('.nw').forEach(function(a){a.style.display=(t==='all'||a.dataset.t===t)?'':'none'})});})();
+
+/* compte à rebours Tokyo */
+(function(){var e=document.getElementById('cdD');if(!e)return;var d=Math.ceil((new Date('2028-08-16T00:00:00+09:00')-new Date())/864e5);e.textContent=d>0?d.toLocaleString('fr-FR'):'0';})();
+/* enregistrement d'une fédération : courriel pré-rempli */
+(function(){var f=document.getElementById('regf');if(!f)return;f.addEventListener('submit',function(e){e.preventDefault();
+  var labels={r1:'Société / fédération',r2:'Sigle',r3:'Pays',r4:'Année de fondation',r5:'Président·e',r6:'Courriel',r7:'Site web',r8:'Nombre de membres',r9:'Langues de travail',r10:'Membre de la FISP',r11:'Projets pour Tokyo 2028'};
+  var miss=['r1','r3','r6'].filter(function(k){return !document.getElementById(k).value.trim()});
+  if(miss.length||!document.getElementById('r12').checked){alert('Merci de renseigner le nom, le pays, le courriel et d’accepter la politique de confidentialité.');return;}
+  var body='Demande d’enregistrement auprès du CIAP\n\n';Object.keys(labels).forEach(function(k){body+=labels[k]+' : '+document.getElementById(k).value+'\n'});
+  location.href='mailto:ciap.philosophie@gmail.com?subject='+encodeURIComponent('Enregistrement – '+document.getElementById('r1').value+' ('+document.getElementById('r3').value+')')+'&body='+encodeURIComponent(body);
+  document.getElementById('regok').style.display='block';});})();

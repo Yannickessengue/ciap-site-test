@@ -395,11 +395,51 @@ font[style]{background:none!important;box-shadow:none!important}
 .legal h3{font-size:18px;margin:30px 0 8px}
 .legal p,.legal li{font-size:16px;color:var(--ink);line-height:1.7}
 .legal ul{padding-left:20px}
-.consent{display:flex;gap:10px;align-items:flex-start;text-transform:none;letter-spacing:0;font-weight:400;font-size:13.5px;color:var(--muted);margin-top:18px}
-.consent input{width:auto;margin-top:3px}
+.consent{display:block;text-transform:none;letter-spacing:0;font-weight:400;font-size:13.5px;color:var(--muted);margin-top:18px}
+.consent input{width:auto;margin:0 8px 0 0;vertical-align:-2px}
 .consent a{color:var(--red);text-decoration:underline}
 footer .bot a{text-decoration:underline}
 @media (max-width:980px){.news-grid,.pts{grid-template-columns:1fr}.agenda-box{position:static}.nw{grid-template-columns:64px 1fr;gap:14px}}
+
+/* Tokyo 2028 */
+.theme-card{background:#0E0C0A;color:#EDE5D8;border-radius:10px;padding:40px;position:relative;overflow:hidden}
+.theme-card::before{content:"";position:absolute;right:-60px;top:-60px;width:220px;height:220px;border-radius:50%;background:var(--red);opacity:.9}
+.theme-card>*{position:relative}
+.theme-card .k{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#FFD58A;font-weight:700}
+.theme-card .t{font-family:var(--disp);font-size:clamp(26px,2.6vw,36px);color:#fff;line-height:1.15;margin:16px 0 8px}
+.theme-card .fr{font-family:var(--serif);font-style:italic;font-size:21px;color:#FFD58A}
+.theme-card .kw{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0}
+.theme-card .kw span{border:1px solid rgba(255,255,255,.25);border-radius:20px;padding:5px 12px;font-size:12px;letter-spacing:.1em;text-transform:uppercase}
+.theme-card .cd{display:flex;align-items:baseline;gap:12px;border-top:1px solid rgba(255,255,255,.12);padding-top:18px}
+.theme-card .cd b{font-family:var(--disp);font-size:46px;color:#fff;line-height:1}
+.theme-card .cd span{font-size:13px;color:#BDB2A2}
+.keys{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:32px}
+.keys div{background:var(--paper);border-radius:8px;padding:24px}
+.keys span{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--red);font-weight:700}
+.keys b{display:block;font-family:var(--serif);font-size:22px;font-weight:600;margin:8px 0 6px;line-height:1.2}
+.keys p{font-size:14.5px;color:var(--muted)}
+.tl2{list-style:none;margin-top:16px;display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.tl2 li{background:var(--paper2);border-radius:8px;padding:20px}
+.tl2 li.hl{background:var(--red);color:#fff}.tl2 li.hl span{color:#FBE3DF}
+.tl2 b{display:block;font-family:var(--disp);font-size:17px}
+.tl2 span{font-size:14px;color:var(--muted)}
+.links{display:grid;gap:8px;margin-top:6px}
+.links a{display:block;background:var(--paper);border-radius:6px;padding:12px 14px;font-weight:700;font-size:14.5px;color:var(--ink);transition:.2s}
+.links a:hover{background:var(--red);color:#fff}
+.links a i{display:block;font-style:normal;font-weight:400;font-size:12.5px;color:var(--muted)}
+.links a:hover i{color:#FBE3DF}
+.box.en{background:var(--paper)}
+.box.en .k{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--red);font-weight:700;margin-bottom:8px}
+.box.en a{color:var(--red);font-weight:700}
+/* enregistrement des fédérations */
+.reg{display:grid;grid-template-columns:.9fr 1.1fr;gap:0;border-radius:10px;overflow:hidden;margin-top:64px;box-shadow:0 40px 70px -45px rgba(21,18,15,.6)}
+.reg-l{background:#0E0C0A;color:#EDE5D8;padding:44px}
+.reg-l h2{color:#fff;font-size:clamp(26px,2.6vw,36px);margin:14px 0 16px}.reg-l h2 em{color:#FFD58A}
+.reg-l p{font-family:var(--serif);font-size:18.5px;color:#CFC4B6}
+.reg-l .en{font-family:var(--sans);font-size:14px;margin-top:20px;color:#BDB2A2}.reg-l .en a{color:#FFD58A;text-decoration:underline}
+.reg-f{border-radius:0;box-shadow:none;padding:36px 40px}
+@media (max-width:980px){.keys,.tl2{grid-template-columns:1fr 1fr}.reg{grid-template-columns:1fr}.reg-l,.reg-f{padding:28px 22px}}
+@media (max-width:560px){.keys,.tl2{grid-template-columns:1fr}}
 /* ===== multipage ===== */
 .menu{gap:18px}
 .menu a{font-size:11px;letter-spacing:.08em;white-space:nowrap}
