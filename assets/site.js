@@ -119,3 +119,6 @@ function gtInit(){new google.translate.TranslateElement({pageLanguage:'fr',inclu
   if(sf)sf.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;var r=b.dataset.r;
     map.querySelectorAll('.cty').forEach(function(p){p.classList.toggle('dim',r!=='all'&&r!=='pan'&&p.getAttribute('data-r')!==r)});});
 })();
+
+/* filtre actualités */
+(function(){var nf=document.getElementById('nfilt');if(!nf)return;nf.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;var t=b.dataset.t;nf.querySelectorAll('button').forEach(function(x){x.classList.toggle('on',x===b)});document.querySelectorAll('.nw').forEach(function(a){a.style.display=(t==='all'||a.dataset.t===t)?'':'none'})});})();
