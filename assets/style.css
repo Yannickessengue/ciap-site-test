@@ -317,6 +317,27 @@ font[style]{background:none!important;box-shadow:none!important}
 .mpstats b{font-family:var(--disp);font-size:24px;color:var(--red);display:block}
 .mpstats span{font-size:11.5px;color:var(--muted)}
 @media (max-width:980px){.mapwrap{grid-template-columns:1fr;padding:20px}}
+
+/* footer + carte */
+.fgrid{display:grid;grid-template-columns:1.35fr 1fr;gap:56px;align-items:center}
+.fbrand{display:flex;gap:26px;align-items:flex-start;margin-bottom:44px}
+.fbrand img{height:84px;width:auto;margin:0}
+.fleft .cols{grid-template-columns:repeat(3,1fr)!important;gap:32px!important}
+.fmap{display:block;position:relative;transition:.3s}
+.fmap:hover{transform:translateY(-3px)}
+.afmap.foot{max-height:520px;width:100%}
+.afmap.foot .cty{fill:rgba(255,255,255,.16);stroke:rgba(187,46,36,1);stroke-width:.9;cursor:pointer}
+.afmap.foot .cty.on1{fill:#FFD58A}
+.afmap.foot .cty.on2{fill:#fff}
+.afmap.foot .cty:hover{fill:inherit}
+.afmap.foot .cty.on1:hover{fill:#FFD58A}.afmap.foot .cty.on2:hover{fill:#fff}
+.afmap.foot .pin circle{fill:#0E0C0A;stroke:#FFD58A}
+.afmap.foot .pin .halo{stroke:#FFD58A}
+.afmap.foot .pin text{fill:#fff;stroke:#BB2E24;font-size:14px}
+.afmap.foot .pin text.sub{fill:#FBE3DF}
+.fcap{display:block;text-align:center;margin-top:10px;font-size:13px;color:#FBE3DF}
+.fcap b{display:block;font-family:var(--disp);font-size:16px;color:#fff;letter-spacing:.06em;margin-bottom:2px}
+@media (max-width:980px){.fgrid{grid-template-columns:1fr}.fbrand{flex-direction:column}.fleft .cols{grid-template-columns:1fr 1fr!important}.afmap.foot{max-height:none}}
 /* ===== multipage ===== */
 .menu{gap:18px}
 .menu a{font-size:11px;letter-spacing:.08em;white-space:nowrap}

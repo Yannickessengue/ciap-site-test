@@ -89,7 +89,7 @@ function gtInit(){new google.translate.TranslateElement({pageLanguage:'fr',inclu
 
 /* carte des sociétés */
 (function(){
-  var map=document.querySelector('.afmap'); if(!map)return;
+  var map=document.querySelector('.mapbox .afmap'); if(!map)return;
   var cards=[].slice.call(document.querySelectorAll('.soc'));
   var T=document.getElementById('mpT'),D=document.getElementById('mpD'),Lst=document.getElementById('mpL');
   var deft=[T.textContent,D.textContent];
