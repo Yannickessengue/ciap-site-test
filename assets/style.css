@@ -338,6 +338,25 @@ font[style]{background:none!important;box-shadow:none!important}
 .fcap{display:block;text-align:center;margin-top:10px;font-size:13px;color:#FBE3DF}
 .fcap b{display:block;font-family:var(--disp);font-size:16px;color:#fff;letter-spacing:.06em;margin-bottom:2px}
 @media (max-width:980px){.fgrid{grid-template-columns:1fr}.fbrand{flex-direction:column}.fleft .cols{grid-template-columns:1fr 1fr!important}.afmap.foot{max-height:none}}
+
+/* Éthiopie 2032 */
+.eth-sec{padding:0 0 96px;background:#fff}
+.eth{display:grid;grid-template-columns:1.5fr 1fr;border-radius:10px;overflow:hidden;background:#0E0C0A;color:#EDE5D8;box-shadow:0 40px 70px -40px rgba(21,18,15,.6)}
+.eth-l{padding:48px 48px 44px;position:relative}
+.eth-l h2{color:#fff;font-size:clamp(26px,2.8vw,38px);margin:16px 0 18px}
+.eth-l h2 em{color:#FFD58A}
+.eth-l p{color:#CFC4B6;font-family:var(--serif);font-size:19px;line-height:1.55}
+.eth-btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.eth-r{background:linear-gradient(160deg,#078930 0 33%,#FCDD09 33% 66%,#DA121A 66%);position:relative;display:flex;flex-direction:column;justify-content:flex-end;padding:36px}
+.eth-r::before{content:"";position:absolute;inset:0;background:rgba(14,12,10,.55)}
+.eth-r>*{position:relative}
+.eth-yr{font-family:var(--disp);font-size:clamp(64px,7vw,96px);line-height:1;color:#fff}
+.eth-city{font-family:var(--serif);font-style:italic;font-size:28px;color:#FFD58A;margin-bottom:26px}
+.eth-c{background:rgba(255,255,255,.95);border-radius:6px;padding:16px 18px;color:var(--ink)}
+.eth-c span{display:block;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--red);font-weight:700}
+.eth-c b{display:block;font-family:var(--serif);font-size:20px;font-weight:600;margin:4px 0 2px}
+.eth-c a{font-size:14px;color:var(--red);text-decoration:underline;text-underline-offset:3px;word-break:break-all}
+@media (max-width:980px){.eth{grid-template-columns:1fr}.eth-l{padding:34px 26px}.eth-r{padding:28px 26px}}
 /* ===== multipage ===== */
 .menu{gap:18px}
 .menu a{font-size:11px;letter-spacing:.08em;white-space:nowrap}
