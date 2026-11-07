@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CIAP — Philosopher au présent, penser ensemble le futur</title>
+<meta name="description" content="Conseil Inter-Africain de Philosophie, fondé à Cotonou en 1973. Éditeur de la revue Conséquence.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --red:#BB2E24;--red-d:#8F1E17;--red-dd:#5E140F;--gold:#D8961B;--gold-l:#E9B85A;
+  --ink:#15120F;--ink2:#221D18;--muted:#6B6158;--paper:#FBF8F2;--paper2:#F4EEE3;--line:#E4DACA;
+  --serif:'Cormorant Garamond',Georgia,serif;--disp:'Cinzel',Georgia,serif;--sans:'Lato',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.65;font-size:16px;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.wrap{max-width:1200px;margin:0 auto;padding:0 28px}
+.eyebrow{display:flex;align-items:center;gap:12px;font-size:11.5px;letter-spacing:.24em;text-transform:uppercase;font-weight:700;color:var(--red)}
+h1,h2,h3{font-family:var(--disp);font-weight:600;line-height:1.15;letter-spacing:.015em}
+h2{font-size:clamp(30px,3.6vw,46px);margin:18px 0 22px}
+h2 em,h1 em{font-family:var(--serif);font-style:italic;font-weight:500;letter-spacing:0}
+.lead{font-family:var(--serif);font-size:clamp(19px,1.7vw,23px);line-height:1.55;color:var(--muted)}
+section{padding:112px 0}
+.btn{border-radius:4px;display:inline-flex;align-items:center;gap:10px;padding:15px 26px;font-weight:700;font-size:13px;letter-spacing:.14em;text-transform:uppercase;border:1px solid transparent;transition:.25s;cursor:pointer;font-family:var(--sans)}
+.btn.red{background:var(--red);color:#fff}.btn.red:hover{background:var(--red-d)}
+.btn.white{background:var(--red);color:#fff}.btn.white:hover{background:#fff;color:var(--red)}
+.btn.line{border-color:rgba(255,255,255,.55);color:#fff}.btn.line:hover{background:rgba(255,255,255,.12);color:#fff}
+.btn.dark{border-color:var(--ink);color:var(--ink)}.btn.dark:hover{background:var(--ink);color:#fff}
+.btn svg{width:16px;height:16px}
+
+/* header */
+header{position:fixed;inset:0 0 auto 0;z-index:60;transition:.3s}
+header.solid{background:rgba(251,248,242,.96);backdrop-filter:blur(10px);box-shadow:0 8px 24px -18px rgba(21,18,15,.35)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:84px}
+.brand img{height:64px;width:auto;transition:.3s}
+.brand .w{display:block}.brand .c{display:none}
+header.solid .brand .w{display:none}header.solid .brand .c{display:block}
+.menu{display:flex;align-items:center;gap:34px;list-style:none}
+.menu a{font-size:12.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#EFE7DA;transition:.2s}
+header.solid .menu a{color:var(--ink)}
+.menu a:hover{color:var(--gold)!important}
+.fb{display:inline-flex;width:34px;height:34px;border:1px solid rgba(255,255,255,.3);border-radius:50%;align-items:center;justify-content:center}
+header.solid .fb{border-color:var(--line)}
+.fb svg{width:15px;height:15px;fill:currentColor}
+.burger{display:none;background:none;border:0;color:#fff;cursor:pointer}
+header.solid .burger{color:var(--ink)}
+.burger svg{width:28px;height:28px}
+
+/* hero */
+.hero{position:relative;background:#0E0C0A;color:#F3ECE0;padding:170px 0 120px;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:
+  radial-gradient(700px 520px at 80% 35%,rgba(187,46,36,.38),transparent 65%),
+  radial-gradient(800px 600px at 0% 110%,rgba(216,150,27,.12),transparent 60%)}
+.hero::after{content:"";position:absolute;inset:0;opacity:.06;background-image:repeating-linear-gradient(115deg,#fff 0 1px,transparent 1px 22px)}
+.hero .grid{position:relative;z-index:1;display:grid;grid-template-columns:1.2fr .8fr;gap:72px;align-items:center}
+.hero .eyebrow{color:#FFE2A8}
+.hero h1{font-size:clamp(36px,4.6vw,64px);margin:26px 0 28px;color:#fff}
+.hero h1 em{color:#FFD58A}
+.hero .lead{color:#CFC4B6;max-width:560px}
+.hero .cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:40px}
+.book{position:relative;justify-self:center;max-width:360px}
+.book img{box-shadow:0 50px 80px -30px rgba(0,0,0,.8),0 0 0 1px rgba(255,255,255,.06);transform:perspective(1400px) rotateY(-12deg) rotateX(2deg);transition:.6s;border-radius:2px 4px 4px 2px}
+.book:hover img{transform:perspective(1400px) rotateY(-4deg)}
+.book .seal{position:absolute;left:-34px;bottom:40px;width:104px;height:104px;border-radius:50%;background:var(--red);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;font-family:var(--disp);font-size:11px;letter-spacing:.12em;line-height:1.3;color:#fff;box-shadow:0 10px 30px rgba(0,0,0,.4);border:1px solid rgba(255,255,255,.25)}
+.book .seal b{font-size:24px;letter-spacing:0;display:block}
+.strip{position:relative;z-index:1;margin-top:96px;display:grid;grid-template-columns:repeat(4,1fr)}
+.strip div{padding:26px 24px 0 0}
+.strip b{font-family:var(--disp);font-size:34px;color:#fff;font-weight:600;display:block;line-height:1.1}
+.strip span{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#A3978A}
+
+/* memoriam */
+.memo{background:var(--paper2);padding:42px 0}
+.memo .wrap{display:grid;grid-template-columns:auto 1fr;gap:36px;align-items:center}
+.memo .m{font-family:var(--disp);font-size:12px;letter-spacing:.3em;color:var(--red);padding-right:12px}
+.memo p{font-family:var(--serif);font-size:21px;line-height:1.5}
+.memo b{font-weight:600}
+
+/* histoire */
+.hist{display:grid;grid-template-columns:.9fr 1.1fr;gap:88px}
+.quote{margin-top:40px;padding:0;font-family:var(--serif);font-style:italic;font-size:24px;line-height:1.45;color:var(--ink)}
+.quote small{display:block;margin-top:12px;font-family:var(--sans);font-style:normal;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.tl{list-style:none;position:relative}
+.tl li{display:grid;grid-template-columns:94px 1fr;gap:34px;padding:0 0 30px;position:relative}
+.tl li.hi .y{color:#fff;background:var(--red);border-radius:20px;text-align:center;padding:2px 0;align-self:start}
+.tl .y{font-family:var(--disp);font-size:15px;color:var(--red);text-align:right;padding-top:2px}
+.tl h3{font-size:16px;margin-bottom:4px}
+.tl p{color:var(--muted);font-size:15px}
+
+/* bureau */
+.bureau{background:#fff}
+.people{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:48px}
+.person{padding:30px 26px;background:var(--paper);border-radius:6px;transition:.25s}
+.person:hover{background:var(--paper2)}
+.ini{width:52px;height:52px;border-radius:50%;background:var(--red);color:#fff;font-family:var(--disp);display:flex;align-items:center;justify-content:center;font-size:16px;margin-bottom:18px}
+.person .r{font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--red);font-weight:700}
+.person .n{font-family:var(--serif);font-size:22px;font-weight:600;line-height:1.2;margin-top:6px}
+.person .s{font-size:13px;color:var(--muted);margin-top:6px}
+
+/* revue */
+.rv-head{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:end}
+.issue{display:grid;grid-template-columns:300px 1fr;gap:64px;margin-top:64px;align-items:start}
+.issue aside{position:sticky;top:110px}
+.issue aside img{box-shadow:0 30px 50px -25px rgba(21,18,15,.55)}
+.meta{margin-top:24px;font-size:14px}
+.meta div{display:flex;justify-content:space-between;padding:7px 0}
+.meta span{color:var(--muted)}
+.lic{margin-top:18px;font-size:12.5px;color:var(--muted);line-height:1.5}
+.policy{background:var(--red);color:#EDE5D8;padding:26px 28px;border-radius:6px;margin-bottom:36px;display:grid;grid-template-columns:auto 1fr;gap:22px;align-items:center}
+.policy .ic{width:46px;height:46px;background:rgba(255,255,255,.14);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff}
+.policy .ic svg{width:20px;height:20px}
+.policy b{color:#fff;font-family:var(--disp);font-weight:600;letter-spacing:.04em}
+.policy p{font-size:14.5px;color:#F6DCD6;margin-top:4px}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
+.filters button{background:var(--paper2);border:0;border-radius:4px;padding:9px 16px;font:700 11.5px var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);cursor:pointer;transition:.2s}
+.filters button.on,.filters button:hover{background:var(--red);border-color:var(--ink);color:#fff}
+.rub{font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-weight:700;color:var(--red);margin:44px 0 6px}
+.art{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;padding:18px 22px;margin:0 -22px;border-radius:6px;transition:.2s}
+.art:hover{background:var(--paper2)}
+.art .t{font-family:var(--serif);font-size:21px;font-weight:600;line-height:1.3}
+.art .a{font-size:14px;color:var(--muted);margin-top:4px}
+.art .a i{font-style:normal;color:#A4998C;margin-left:10px;font-size:12.5px;letter-spacing:.06em}
+.acc{display:flex;flex-direction:column;align-items:flex-end;gap:8px;min-width:170px}
+.chip{display:inline-flex;align-items:center;gap:6px;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;padding:5px 10px;border-radius:20px}
+.chip.open{background:#E8F1E4;color:#3E6B30}
+.chip.emb{background:#F7EAD2;color:#8A5A0B}
+.chip svg{width:12px;height:12px}
+.acc a,.acc button{font:700 12px var(--sans);letter-spacing:.1em;text-transform:uppercase;border:0;background:none;cursor:pointer;color:var(--red);text-decoration:underline;text-underline-offset:4px;padding:0}
+.acc .d{font-size:12px;color:var(--muted)}
+.next{margin-top:56px;display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.next div{padding:28px;background:var(--paper2);border-radius:6px}
+.next .k{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:900}
+.next h3{font-size:19px;margin:8px 0 8px}
+.next p{color:var(--muted);font-size:15px}
+.comites{margin-top:88px;display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
+.comites h4{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--red);margin-bottom:12px}
+.comites p{font-family:var(--serif);font-size:18px;line-height:1.55}
+.comites small{display:block;font-family:var(--sans);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:12px}
+
+/* activités */
+.act{background:var(--red);color:#FBEDEA}
+.act h2{color:#fff}.act h2 em{color:#FFD58A}.act .eyebrow{color:#FFE2A8}
+.phases{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:56px}
+.ph{background:var(--red-d);padding:40px 34px;border-radius:6px}
+.ph .no{font-family:var(--disp);font-size:56px;color:transparent;-webkit-text-stroke:1px #FFD58A;line-height:1}
+.ph .yr{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#F2C9C2;margin-top:18px}
+.ph h3{font-size:22px;color:#fff;margin:6px 0 18px}
+.ph li{list-style:none;padding:6px 0;font-size:15px;color:#FBE3DF}
+.agenda{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:64px}
+.ev{padding-top:0}
+.ev .d{font-family:var(--disp);font-size:30px;color:#fff}
+.ev .w{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#FFD58A;margin:6px 0 10px;font-weight:700}
+.ev p{font-size:15px;color:#F6DCD6}
+
+/* adhérer */
+.join{display:grid;grid-template-columns:.9fr 1.1fr;gap:72px}
+.tiers{margin-top:32px;display:grid;gap:14px}
+.tier{display:grid;grid-template-columns:auto 1fr;gap:18px;padding:20px 22px;background:#fff;border-radius:6px}
+.tier .no{font-family:var(--disp);color:var(--red);font-size:20px}
+.tier h3{font-size:16px}.tier p{font-size:14.5px;color:var(--muted)}
+form{background:#fff;padding:40px;border-radius:8px;box-shadow:0 30px 60px -40px rgba(21,18,15,.35)}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+label{display:block;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin:18px 0 8px}
+input,select,textarea{width:100%;padding:13px 14px;border:0;background:var(--paper);font:inherit;font-size:16px;color:var(--ink);border-radius:4px}
+input:focus,select:focus,textarea:focus{outline:0;box-shadow:0 0 0 2px rgba(180,43,34,.35)}
+.note{font-size:12.5px;color:var(--muted);margin-top:16px}
+.ok{display:none;margin-top:18px;padding:14px 16px;background:#EEF4EA;border-radius:4px;font-size:15px}
+
+/* social */
+.social{background:var(--ink);color:#fff;padding:64px 0}
+.social .wrap{display:flex;justify-content:space-between;align-items:center;gap:30px;flex-wrap:wrap}
+.social h3{font-size:clamp(22px,2.4vw,30px)}
+.social p{font-family:var(--serif);font-size:19px;opacity:.85;margin-top:6px}
+.social .btn{background:var(--red);color:#fff}
+.social .btn:hover{background:#fff;color:var(--red)}
+
+footer{background:var(--red);color:#FBE3DF;padding:80px 0 34px;font-size:14px}
+footer .cols{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:48px}
+footer img{height:84px;width:auto;margin-bottom:20px}
+footer h4{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#FFD58A;margin-bottom:16px}
+footer li{list-style:none;padding:4px 0}
+footer a:hover{color:#fff}
+footer .bot{margin-top:60px;padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:12px}
+.draft{background:var(--gold);color:var(--ink);padding:3px 9px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;font-size:10.5px}
+
+/* modal */
+.modal{position:fixed;inset:0;background:rgba(21,18,15,.7);z-index:100;display:none;align-items:center;justify-content:center;padding:20px}
+.modal.on{display:flex}
+.modal .box{background:var(--paper);border-radius:8px;max-width:520px;width:100%;padding:40px;position:relative}
+.modal .x{position:absolute;right:16px;top:12px;background:none;border:0;font-size:26px;cursor:pointer;color:var(--muted)}
+.modal h3{font-size:22px;margin:10px 0 8px}
+.modal .art-t{font-family:var(--serif);font-size:19px;font-style:italic;color:var(--muted)}
+
+
+/* hommage */
+.hom{background:var(--paper2);padding:120px 0}
+.hom .top{display:grid;grid-template-columns:.8fr 1.2fr;gap:80px;align-items:start}
+.hom figure{position:sticky;top:110px}
+.hom figure img{border-radius:6px;filter:saturate(.85);box-shadow:0 40px 70px -40px rgba(21,18,15,.6)}
+.hom figcaption{font-size:12.5px;color:var(--muted);margin-top:12px;letter-spacing:.04em}
+.hom h2{font-size:clamp(36px,4.4vw,58px);margin:16px 0 6px}
+.hom .dates{font-family:var(--serif);font-size:24px;color:var(--muted);font-style:italic}
+.hom .sub{margin-top:18px;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);font-weight:700}
+.exergue{margin:44px 0 0;background:#fff;border-radius:8px;padding:44px 48px;position:relative}
+.exergue::before{content:"\201C";position:absolute;top:-10px;left:30px;font-family:var(--serif);font-size:120px;line-height:1;color:var(--gold);opacity:.55}
+.exergue .k{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--red);font-weight:700}
+.exergue h3{font-family:var(--disp);font-size:17px;margin:6px 0 20px;letter-spacing:.06em}
+.exergue p{font-family:var(--serif);font-size:20px;line-height:1.6;color:var(--ink);margin-bottom:16px}
+.exergue .more{max-height:0;overflow:hidden;transition:max-height .8s ease}
+.exergue.open .more{max-height:2400px}
+.exergue .sig{font-family:var(--sans);font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:8px}
+.exergue .tog{margin-top:6px;background:none;border:0;cursor:pointer;font:700 12px var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--red);text-decoration:underline;text-underline-offset:4px}
+.roles{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:28px}
+.roles div{background:#fff;border-radius:6px;padding:22px 24px}
+.roles b{display:block;font-family:var(--disp);font-size:15px;color:var(--red);letter-spacing:.04em}
+.roles p{font-size:14.5px;color:var(--muted);margin-top:6px}
+.homlinks{margin-top:28px;display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.homlinks .c{font-size:14px;color:var(--muted)}
+.vig{margin-top:28px;background:var(--red);color:#EDE5D8;border-radius:6px;padding:22px 26px;display:flex;gap:22px;align-items:center;flex-wrap:wrap}
+.vig .d{font-family:var(--disp);font-size:26px;color:#FFD58A;line-height:1}
+.vig .d small{display:block;font-family:var(--sans);font-size:11px;letter-spacing:.14em;color:#F2C9C2;margin-top:6px}
+.vig p{font-size:14.5px;color:#FBE3DF;flex:1;min-width:220px}
+.vig b{color:#fff}
+@media (max-width:980px){.hom .top{grid-template-columns:1fr;gap:40px}.hom figure{position:static;max-width:360px}.roles{grid-template-columns:1fr}.exergue{padding:36px 26px}}
+
+/* fédérer */
+.fed{background:#fff}
+.fed .head{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:end}
+.pillars{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:56px}
+.pillar{background:var(--paper);border-radius:8px;padding:30px 26px;display:flex;flex-direction:column}
+.pillar .n{font-family:var(--disp);font-size:13px;letter-spacing:.14em;color:var(--red)}
+.pillar h3{font-size:19px;margin:12px 0 10px}
+.pillar p{font-size:15px;color:var(--muted);flex:1}
+.pillar a{margin-top:16px;font:700 12px var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--red);text-decoration:underline;text-underline-offset:4px}
+.pillar.hl{background:var(--red);color:#fff}.pillar.hl .n{color:#FFD58A}.pillar.hl p{color:#FBE3DF}.pillar.hl a{color:#fff}
+.found{margin-top:72px;display:grid;grid-template-columns:.9fr 1.1fr;gap:64px;align-items:start}
+.found .grid6{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.found .f{background:var(--paper2);border-radius:6px;padding:18px}
+.found .f b{display:block;font-family:var(--serif);font-size:19px;font-weight:600;line-height:1.2}
+.found .f span{font-size:12px;color:var(--muted);display:block;margin-top:4px}
+.found .f i{font-style:normal;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--red);font-weight:700}
+/* cotonou */
+.cot{background:#0E0C0A;color:#E9E1D5}
+.cot h2{color:#fff}.cot h2 em{color:#FFD58A}.cot .eyebrow{color:#FFD58A}
+.cot .lead{color:#BDB2A2}
+.cot .intro{display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:start}
+.cot .rec{display:grid;gap:10px;margin-top:28px}
+.cot .rec div{background:#1D1915;border-radius:6px;padding:14px 18px;font-size:15px;color:#E9E1D5}
+.cot .rec b{color:#FFD58A;font-family:var(--disp);margin-right:10px}
+.poster{border-radius:6px;box-shadow:0 40px 70px -30px rgba(0,0,0,.8)}
+.gal{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:150px;gap:10px;margin-top:64px}
+.gal figure{position:relative;overflow:hidden;border-radius:6px;cursor:zoom-in;background:#1D1915}
+.gal img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.gal figure:hover img{transform:scale(1.04)}
+.gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 14px 10px;font-size:12.5px;color:#fff;background:linear-gradient(transparent,rgba(0,0,0,.65));opacity:0;transition:.3s}
+.gal figure:hover figcaption{opacity:1}
+.g1{grid-column:span 4;grid-row:span 3}.g2{grid-column:span 2;grid-row:span 2}.g3{grid-column:span 2;grid-row:span 1}
+.g4{grid-column:span 2;grid-row:span 2}.g5{grid-column:span 2;grid-row:span 2}.g6{grid-column:span 2;grid-row:span 2}
+.credit{margin-top:16px;font-size:12.5px;color:#8F8476;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.credit a{color:#FFD58A;text-decoration:underline;text-underline-offset:3px}
+.lb{position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:120;display:none;align-items:center;justify-content:center;padding:30px;flex-direction:column;gap:12px}
+.lb.on{display:flex}.lb img{max-width:100%;max-height:84vh;border-radius:4px}.lb p{color:#ddd;font-size:14px}
+@media (max-width:980px){.fed .head,.found,.cot .intro{grid-template-columns:1fr;gap:36px}.pillars{grid-template-columns:1fr 1fr}.found .grid6{grid-template-columns:1fr 1fr}.gal{grid-template-columns:1fr 1fr;grid-auto-rows:140px}.gal figure{grid-column:span 1!important;grid-row:span 1!important}.gal .g1{grid-column:span 2!important;grid-row:span 2!important}}
+@media (max-width:560px){.pillars{grid-template-columns:1fr}}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease}
+.reveal.in{opacity:1;transform:none}
+
+@media (max-width:980px){
+  .menu{display:none;position:absolute;top:84px;left:0;right:0;background:var(--paper);flex-direction:column;align-items:flex-start;padding:24px 28px;gap:18px;box-shadow:0 20px 30px -20px rgba(0,0,0,.3)}
+  .menu.open{display:flex}.menu a{color:var(--ink)!important}
+  .burger{display:block}
+  .hero{padding:130px 0 80px}
+  .hero .grid,.hist,.rv-head,.issue,.join{grid-template-columns:1fr;gap:48px}
+  .book{max-width:250px}
+  .strip{grid-template-columns:1fr 1fr;row-gap:24px}
+  .people{grid-template-columns:1fr 1fr}
+  .issue aside{position:static;max-width:260px}
+  .phases,.agenda,.comites,.next{grid-template-columns:1fr}
+  .memo .wrap{grid-template-columns:1fr;gap:12px}.memo .m{border:0;padding:0}
+  .art{grid-template-columns:1fr}.acc{align-items:flex-start}
+  footer .cols{grid-template-columns:1fr 1fr}
+  section{padding:80px 0}
+}
+@media (max-width:560px){.people,.row,footer .cols{grid-template-columns:1fr}.tl::before,.tl li::after{display:none}.tl li{grid-template-columns:1fr;gap:4px}.tl .y{text-align:left}}
+</style>
+</head>
+<body>
+
+<header id="hd">
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="CIAP, accueil"><img class="w" src="assets/logo-white.png" alt="CIAP"><img class="c" src="assets/logo-color.png" alt="CIAP"></a>
+    <ul class="menu" id="menu">
+      <li><a href="#hommage">Hommage</a></li>
+      <li><a href="#federer">Le CIAP</a></li>
+      <li><a href="#cotonou">Cotonou 2025</a></li>
+      <li><a href="#revue">Revue</a></li>
+      <li><a href="#activites">Activités</a></li>
+      <li><a href="#adherer">Adhérer</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a class="fb" href="https://www.facebook.com/profile.php?id=61586312145628" target="_blank" rel="noopener" aria-label="Facebook du CIAP"><svg viewBox="0 0 24 24"><path d="M14 8h3V4h-3c-2.8 0-5 2.2-5 5v2H7v4h2v9h4v-9h3l1-4h-4V9c0-.6.4-1 1-1z"/></svg></a></li>
+    </ul>
+    <button class="burger" id="bg" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 7h18M3 12h18M3 17h18"/></svg></button>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="wrap">
+    <div class="grid">
+      <div>
+        <div class="eyebrow">Conseil Inter-Africain de Philosophie · depuis 1973</div>
+        <h1>Philosopher au présent,<br><em>penser ensemble le futur</em></h1>
+        <p class="lead">Le CIAP se donne pour projet de rassembler les sociétés de philosophie du continent et de ses diasporas, francophones et anglophones, afin de porter ensemble la philosophie africaine au XXVI<sup>e</sup> Congrès mondial de philosophie, au Japon, en 2028. Sa relance est née au Congrès mondial de Rome, en 2024.</p>
+        <div class="cta">
+          <a class="btn white" href="#federer">Rejoindre la fédération <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="btn line" href="#revue">Lire <i style="text-transform:none;font-family:var(--serif);font-size:16px;letter-spacing:0">Conséquence</i></a>
+          
+        </div>
+      </div>
+      <div class="book">
+        <img src="assets/couverture-2026.jpg" alt="Couverture de Conséquence, numéro spécial de relance : Hommage à Paulin J. Hountondji">
+        <div class="seal">Numéro<b>2026</b>de relance</div>
+      </div>
+    </div>
+    <div class="strip">
+      <div><b>1973</b><span>Fondation à Cotonou</span></div>
+      <div><b>Rome 2024</b><span>Naissance de la relance</span></div>
+      <div><b>Cotonou 2025</b><span>Hommage à Hountondji</span></div>
+      <div><b>Tokyo 2028</b><span>Congrès mondial</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="hommage" class="hom">
+  <div class="wrap top">
+    <figure>
+      <img src="assets/tanella-boni-geneve-2012.jpg" alt="Tanella Boni au micro, Salon du livre de Genève, 2012">
+      <figcaption>Tanella Boni — Salon du livre de Genève, 2012</figcaption>
+    </figure>
+    <div>
+      <div class="eyebrow">Hommage du CIAP</div>
+      <h2>Tanella Boni</h2>
+      <div class="dates">Abidjan, 20 mai 1954 — 15 septembre 2026</div>
+      <div class="sub">Philosophe · poète · romancière</div>
+      <p class="lead" style="margin-top:22px">Figure capitale de la relance du CIAP et de la présence africaine au sein de la Fédération Internationale des Sociétés de Philosophie, Tanella Boni a porté la voix de la philosophie africaine dans le monde, avec une exigence et une générosité que le Conseil n’oubliera pas.</p>
+
+      <div class="exergue" id="exg">
+        <div class="k">En exergue</div>
+        <h3>Mot au nom de tous (CIAP) pour Tanella Boni</h3>
+        <p>Au moment où je me prépare à écrire un mot en hommage à Tanella BONI, je reçois un courriel du Professeur Abdoulaye Elimane KANE, Président du Conseil Interafricain de Philosophie (CIAP) de me commettre à la tâche de le faire au nom de tous. Ce « tous » questionne, car il dépasse le cercle déjà large des membres du CIAP, de la communauté africaine de philosophie pour rassembler au niveau international, les membres des communautés philosophiques, littéraires et poétiques d’Europe, d’Asie, d’Amérique et de l’Océan indien. Oui, c’est ce vaste espace habité et imaginé du monde qui est l’espace philosophique, littéraire et poétique de Tanella BONI. Un espace de liberté, de respect, de justice, de créativité, de dignité, d’égalité entre tous, femmes et hommes ; ainsi que d’humanité en partage dans la quête incessante de l’universel au sein duquel le continent africain ne cesse de vibrer en résonnance dans le monde enchanté de la nature végétale et animale.</p>
+        <div class="more">
+        <p>De tout temps et depuis surtout l’année 2016 jusqu’en 2026 notamment, Tanella BONI s’est mise à l’écoute de toutes et de tous de par le monde, en dialoguant, en riant et en réfléchissant toujours dans la tempérance, la retenue, même envers celles et ceux qui frontalement croyaient se jouer de sa gentillesse, de sa sagesse philosophique et du don de soi. Elle seule savait ce que valent la dignité et le respect de soi et des autres dans un monde en perpétuelle mutation sociale, économique, politique et culturelle. Que l’on pense entre autres, au colloque international de 2016 qu’elle a organisé à Abidjan sur « Les politiques de la dignité » ; aux différentes sessions de Poéticales de Côte-d’Ivoire, au 25<sup>e</sup> Congrès mondial de la Fédération internationale des Sociétés de Philosophie (FISP) à Rome (Italie) en août 2024 sur le thème « La philosophie au-delà des frontières » ; au colloque international organisé à Cotonou (Bénin) du 3 au 5 février 2025 en hommage à Paulin Hountondji ; aux Journées scientifiques que nous avons co-organisées les 24 et 25 juin 2025 à l’Université de Pau et des Pays de l’Adour (France) sur le thème « La philosophie africaine et les archives ». Il s’agit de savoir comment penser la philosophie africaine dans ses rapports avec les archives orales et écrites situées aussi bien sur le continent africain que sur d’autres continents comme l’Europe ? Surtout, lorsque l’on sait que la philosophie doit recourir aux sources orales et écrites explorées par l’histoire, l’archéologie, la littérature et la linguistique par exemple, pour élucider le sens réel ou apparent que recèlent les documents oraux, sonores, photographiques et écrits qui sont des mémoires archivées qui convoquent le plus souvent le souvenir du sujet et/ou des sujets au sein de la société ? C’est un des projets en chantier que Tanella BONI entendait réaliser collectivement.</p>
+        <p>Enfin, la relance du CIAP et la parution imminente du numéro 2 de la Revue <i>Conséquence</i> CIAP, et pour laquelle elle et moi avons co-signé l’éditorial, devait marquer le renouvellement institutionnel de ce précieux instrument philosophique. Elle a accepté avec enthousiasme d’en être la Directrice. En m’envoyant au mois de mai 2026, ainsi qu’à Marie-Rose ABOMO MAURIN, son dernier ouvrage intitulé <i>Femmes au bord du temps</i> portant la préface d’Aloyse-Raymond NDIAYE et la postface de Stéphane DOUAILLIER et de Françoise SIMASOTCHI-BRONES, Tanella BONI nous fait comprendre ceci, dans un des passages des poèmes de cet ouvrage (p. 17) : « En réalité le maître du Temps n’a pas de nom. Il se reconnaît par sa présence interminable ». Ces trois projets dont elle porte la marque, à savoir Poéticales, la question des archives en philosophie et la direction de la Revue <i>Conséquence</i>, sont le legs précieux de Tanella BONI pour la philosophie, la littérature et la poésie. Que ses idées demeurent éternelles…</p>
+        </div>
+        <div class="sig">Abel Kouvouama, au nom du CIAP</div>
+        <button class="tog" id="tog">Lire le texte intégral</button>
+      </div>
+
+      <div class="roles">
+        <div><b>Relance du CIAP</b><p>Coprésidente de la réunion du 26 juillet 2025 qui a officialisé la relance du Conseil ; directrice de publication de <i>Conséquence</i> avec Abel Kouvouama.</p></div>
+        <div><b>FISP</b><p>Vice-présidente de la Fédération Internationale des Sociétés de Philosophie (2013-2018) ; présente au XXV<sup>e</sup> Congrès mondial de Rome en 2024.</p></div>
+        <div><b>CIPSH</b><p>Vice-présidente du Conseil international de la philosophie et des sciences humaines (2002-2006).</p></div>
+        <div><b>Œuvre</b><p>Professeure à l’Université Félix Houphouët-Boigny, porteuse des Poéticales de Côte d’Ivoire ; prix Ahmadou-Kourouma 2005 pour <i>Matins de couvre-feu</i>.</p></div>
+      </div>
+
+      <div class="vig">
+        <div class="d">7.10.2026<small>Abidjan · UFHB</small></div>
+        <p><b>Veillée académique « La femme monde »</b> — hommage pluridisciplinaire organisé par les départements de philosophie et de lettres modernes de l’Université Félix Houphouët-Boigny.</p>
+      </div>
+
+      <div class="homlinks">
+        <a class="btn dark" href="https://www.philoafricaine.org/edito/en-memoire-de-tanella-boni" target="_blank" rel="noopener">Lire « En mémoire de Tanella Boni »</a>
+        <span class="c">Témoignages et contributions : ciap.philosophie@gmail.com</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="federer" class="fed">
+  <div class="wrap">
+    <div class="head reveal">
+      <div>
+        <div class="eyebrow">Notre ambition</div>
+        <h2>Fédérer les sociétés de philosophie <em>d’Afrique et des diasporas</em></h2>
+      </div>
+      <p class="lead">Depuis 1973, la raison d’être du CIAP n’a pas changé : relier les sociétés nationales, les départements et les chercheurs pour que l’Afrique parle d’une voix commune dans les instances philosophiques internationales.</p>
+    </div>
+    <div class="pillars">
+      <div class="pillar"><div class="n">01 · Rassembler</div><h3>Les sociétés nationales</h3><p>Reconstituer le réseau des sociétés nationales de philosophie et des départements, de Dakar à Nairobi, de Lubumbashi à Lagos.</p></div>
+      <div class="pillar"><div class="n">02 · Relier</div><h3>Francophones et anglophones</h3><p>Le versant anglophone du CIAP s’appuie sur l’African Philosophy Society, pour une fédération réellement continentale.</p><a href="https://africanphilosophysociety.org/" target="_blank" rel="noopener">African Philosophy Society</a></div>
+      <div class="pillar"><div class="n">03 · Représenter</div><h3>Auprès de la FISP</h3><p>Affilier le CIAP à la Fédération Internationale des Sociétés de Philosophie et y porter une présence africaine unifiée.</p></div>
+      <div class="pillar hl"><div class="n">04 · Converger</div><h3>Tokyo 2028</h3><p>Préparer la participation fédérée des sociétés africaines au XXVI<sup>e</sup> Congrès mondial de philosophie, au Japon, du 16 au 23 août 2028.</p><a href="#adherer">Inscrire sa société</a></div>
+    </div>
+    <div class="found reveal">
+      <div>
+        <div class="eyebrow">Le bureau fondateur · Cotonou, 3 janvier 1973</div>
+        <h3 style="font-size:24px;margin:16px 0 14px">Une filiation qui se poursuit</h3>
+        <p style="color:var(--muted);font-size:16px">Plusieurs figures de 1973 accompagnent la relance : Abdoulaye Elimane Kane, premier vice-président en 1973, préside aujourd’hui le CIAP ; Aloyse-Raymond Ndiaye, trésorier fondateur, siège au bureau ; et l’œuvre de Paulin Hountondji, premier secrétaire général, inspire le numéro de relance de <i>Conséquence</i>.</p>
+      </div>
+      <div class="grid6">
+        <div class="f"><i>Président</i><b>Olu John Sodipo</b><span>Université d’Ifé</span></div>
+        <div class="f"><i>1<sup>er</sup> vice-président</i><b>Abdoulaye Elimane Kane</b><span>Université de Dakar</span></div>
+        <div class="f"><i>2<sup>e</sup> vice-président</i><b>Kwasi Wiredu</b><span>Université du Ghana</span></div>
+        <div class="f"><i>Secrétaire général</i><b>Paulin J. Hountondji</b><span>Université nationale du Bénin</span></div>
+        <div class="f"><i>Trésorier général</i><b>Aloyse-Raymond Ndiaye</b><span>Université de Dakar</span></div>
+        <div class="f"><i>Trésorier adjoint</i><b>Henry Odera Oruka</b><span>Université de Nairobi</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="histoire">
+  <div class="wrap hist">
+    <div class="reveal">
+      <div class="eyebrow">Le CIAP</div>
+      <h2>De Cotonou à Tokyo, <em>une fédération qui renaît</em></h2>
+      <p class="lead">Le CIAP se donne pour projet de rassembler sociétés savantes, départements et chercheurs en philosophie d’Afrique et des diasporas. En lien avec la Fédération Internationale des Sociétés de Philosophie (FISP), il entend porter la voix philosophique du continent dans les instances internationales.</p>
+      <div class="quote">Fédérer les sociétés de philosophie africaines, créer un réseau continental de réflexion critique, faire entendre la voix de l’Afrique dans les instances internationales.<small>Objectifs fondateurs, Cotonou, 1973</small></div>
+    </div>
+    <ol class="tl reveal">
+      <li><div class="y">1973</div><div><h3>Fondation à Cotonou</h3><p>Le 3 janvier, Sodipo, Kane, Wiredu, Hountondji, Ndiaye et Oruka créent le Conseil Inter-Africain de Philosophie.</p></div></li>
+      <li><div class="y">1974</div><div><h3>Premier numéro de <i>Conséquence</i></h3><p>Il publie les statuts et les orientations philosophiques du Conseil. Faute de moyens, la revue entre ensuite en sommeil.</p></div></li>
+      <li><div class="y">Mise en veille</div><div><h3>Des décennies de silence</h3><p>Faute de moyens, le CIAP et sa revue cessent leurs activités ; le souvenir persiste chez les générations formées par les pionniers.</p></div></li>
+      <li class="hi"><div class="y">Rome 2024</div><div><h3>La relance naît au Congrès mondial</h3><p>Au XXV<sup>e</sup> Congrès mondial de philosophie (août 2024), les philosophes africains présents constatent l’absence d’organisation panafricaine unifiée auprès de la FISP et appellent à refonder le CIAP.</p></div></li>
+      <li><div class="y">Fév. 2025</div><div><h3>Retour à Cotonou</h3><p>Le colloque international d’hommage à Paulin J. Hountondji recommande de réactiver <i>Conséquence</i> et d’élire un bureau transgénérationnel. <a href="#cotonou" style="color:var(--red);text-decoration:underline">Voir le colloque</a></p></div></li>
+      <li><div class="y">Juil. 2025</div><div><h3>Réactivation officielle</h3><p>Réunion du 26 juillet : direction de la revue confiée à Tanella Boni et Abel Kouvouama.</p></div></li>
+      <li><div class="y">2026</div><div><h3>Numéro spécial de relance</h3><p><i>Hommage à Paulin J. Hountondji</i>, plus de cinquante ans après le premier numéro.</p></div></li>
+      <li class="hi"><div class="y">Tokyo 2028</div><div><h3>Une présence africaine fédérée</h3><p>Participation unifiée des sociétés africaines au XXVI<sup>e</sup> Congrès mondial de philosophie, précédée du Congrès panafricain d’Addis-Abeba.</p></div></li>
+    </ol>
+  </div>
+</section>
+
+
+<section id="cotonou" class="cot">
+  <div class="wrap">
+    <div class="intro">
+      <div class="reveal">
+        <div class="eyebrow">Retour à Cotonou · 3 – 5 février 2025</div>
+        <h2>Colloque international <em>Hommage à Paulin J. Hountondji</em></h2>
+        <p class="lead">Dans la ville natale de Paulin Hountondji, premier secrétaire général du CIAP, l’Université d’Abomey-Calavi a accueilli trois jours de travaux tenus simultanément avec Rabat, Paris-Nanterre et Toulouse. Les textes de ce colloque forment le numéro de relance de <i>Conséquence</i>.</p>
+        <div class="rec">
+          <div><b>I</b>Réactiver la revue <i>Conséquence</i></div>
+          <div><b>II</b>Élire un bureau transgénérationnel</div>
+          <div><b>III</b>Tenir une réunion de relance formelle, devenue celle de juillet 2025</div>
+        </div>
+        <div style="margin-top:28px;display:flex;gap:12px;flex-wrap:wrap">
+          <a class="btn white" href="assets/cotonou/programme-colloque-hountondji-2025.pdf" target="_blank" rel="noopener">Programme (PDF)</a>
+          <a class="btn line" href="https://colloque-hommage-hountondji.univ-tlse2.fr" target="_blank" rel="noopener">Site du colloque</a>
+        </div>
+      </div>
+      <img class="poster" src="assets/cotonou/affiche.jpg" alt="Affiche du colloque international Hommage à Paulin J. Hountondji, 3-5 février 2025" loading="lazy">
+    </div>
+    <div class="gal" id="gal">
+      <figure class="g1"><img src="assets/cotonou/tribune.jpg" alt="Tribune du colloque d’hommage à Paulin J. Hountondji" loading="lazy"><figcaption>La tribune du colloque, Université d’Abomey-Calavi</figcaption></figure>
+      <figure class="g2"><img src="assets/cotonou/accueil.jpg" alt="Échange de salutations à la tribune" loading="lazy"><figcaption>Salutations à la tribune</figcaption></figure>
+      <figure class="g3"><img src="assets/cotonou/echanges.jpg" alt="Universitaires en toge échangeant" loading="lazy"><figcaption>Échanges entre universitaires</figcaption></figure>
+      <figure class="g4"><img src="assets/cotonou/photo-groupe.jpg" alt="Photo de groupe des participants" loading="lazy"><figcaption>Les participants du colloque</figcaption></figure>
+      <figure class="g5"><img src="assets/cotonou/auditoire.jpg" alt="Auditoire sous le chapiteau" loading="lazy"><figcaption>Un auditoire nombreux</figcaption></figure>
+      <figure class="g6"><img src="assets/cotonou/panel.jpg" alt="Panel de communicants" loading="lazy"><figcaption>Session de communications</figcaption></figure>
+      <figure class="g3"><img src="assets/cotonou/etudiants.jpg" alt="Étudiants dans la salle" loading="lazy"><figcaption>Les étudiants, nombreux</figcaption></figure>
+      <figure class="g3"><img src="assets/cotonou/dialogue.jpg" alt="Dialogue entre deux participants" loading="lazy"><figcaption>Dialogues entre générations</figcaption></figure>
+      <figure class="g3"><img src="assets/cotonou/lecture.jpg" alt="Lecture d’une communication" loading="lazy"><figcaption>Lecture d’une communication</figcaption></figure>
+    </div>
+    <div class="credit"><span>Photographies : Gilles-Christ Codjo</span><span>Affiche : Université Toulouse – Jean Jaurès et partenaires</span></div>
+  </div>
+</section>
+
+<section class="bureau">
+  <div class="wrap">
+    <div class="eyebrow">Gouvernance</div>
+    <h2>Le bureau</h2>
+    <div class="people">
+      <div class="person"><div class="ini">AEK</div><div class="r">Président</div><div class="n">Abdoulaye Elimane Kane</div></div>
+      <div class="person"><div class="ini">DM</div><div class="r">1<sup>er</sup> vice-président</div><div class="n">Désiré Medegnon</div></div>
+      <div class="person"><div class="ini">API</div><div class="r">2<sup>e</sup> vice-présidente</div><div class="n">Abosede Priscilla Ipadeola</div></div>
+      <div class="person"><div class="ini">YE</div><div class="r">Secrétaire général</div><div class="n">Yannick Essengue</div><div class="s">Université Toulouse – Jean Jaurès</div></div>
+      <div class="person"><div class="ini">PCK</div><div class="r">Secrétaire général adjoint</div><div class="n">Paul Christian Kiti</div></div>
+      <div class="person"><div class="ini">GTK</div><div class="r">Trésorier général</div><div class="n">Grison-Trésor Kakumbi</div><div class="s">Suppléant : Aloyse-Raymond Ndiaye</div></div>
+      <div class="person"><div class="ini">PN</div><div class="r">Trésorier adjoint</div><div class="n">Philippe Nguemeta</div></div>
+      <div class="person" style="background:var(--paper)"><div class="r" style="color:var(--muted)">Assemblée générale</div><div class="n" style="font-size:18px;color:var(--muted)">Date à fixer</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="revue">
+  <div class="wrap">
+    <div class="rv-head reveal">
+      <div>
+        <div class="eyebrow">La revue du CIAP</div>
+        <h2><em style="font-size:1.15em">Conséquence</em></h2>
+      </div>
+      <p class="lead">Articles inédits, traductions et recensions en philosophie africaine, évalués en double aveugle. Publication en français, en anglais et dans les principales langues africaines.</p>
+    </div>
+
+    <div class="issue">
+      <aside>
+        <img src="assets/couverture-2026.jpg" alt="Couverture du numéro 2026">
+        <div class="meta">
+          <div><span>Numéro</span><b>Spécial de relance</b></div>
+          <div><span>Thème</span><b>Hommage à P. J. Hountondji</b></div>
+          <div><span>Année</span><b>2026</b></div>
+          <div><span>Pages</span><b>260</b></div>
+          <div><span>Langues</span><b>FR · EN</b></div>
+        </div>
+        <p class="lic">Licence Creative Commons CC BY-NC 4.0 · © CIAP, 2026.</p>
+      </aside>
+
+      <div>
+        <div class="policy">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="5" y="11" width="14" height="10" rx="1"/><path d="M8 11V7a4 4 0 0 1 8 0"/></svg></div>
+          <div><b>Embargo de douze mois, puis libre accès</b><p>Chaque article est réservé aux membres du CIAP pendant un an après la parution, puis passe automatiquement en accès libre. Libre accès pour ce numéro : <strong id="oaDate" style="color:#FFD58A"></strong>.</p></div>
+        </div>
+        <div class="filters" id="flt">
+          <button class="on" data-f="all">Tous</button>
+          <button data-f="open">Libre accès</button>
+          <button data-f="emb">Sous embargo</button>
+        </div>
+        <div id="toc"></div>
+        <div class="next">
+          <div><div class="k">Archive</div><h3><i>Conséquence</i>, n°1 · 1974</h3><p>Le numéro fondateur, avec les statuts du CIAP : numérisation en cours.</p></div>
+          <div><div class="k">Appel à contributions</div><h3>Prochain numéro</h3><p>Thème et calendrier annoncés prochainement par le comité de rédaction.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="comites reveal">
+      <div><h4>Direction</h4><p>Abel Kouvouama<br>Tanella Boni †<small>Directeurs de publication</small></p><p style="margin-top:16px">Paul Christian Kiti<br>Ulrich Metende<small>Rédacteurs en chef</small></p><p style="margin-top:16px">Yannick Essengue<small>Secrétaire de rédaction &amp; design</small></p></div>
+      <div><h4>Comité scientifique</h4><p>Abdoulaye Elimane Kane · Abel Kouvouama · Abosede Priscilla Ipadeola · Aloyse-Raymond Ndiaye · Désiré Medegnon · Souleymane Bachir Diagne · Tanella Boni † · Emmanuel Banywesize · Dismas A. Masolo</p></div>
+      <div><h4>Rédaction &amp; lecture</h4><p>Alfred Gambou · Florence Botti<small>Rédacteurs</small></p><p style="margin-top:16px">Grison-Trésor Kakumbi · Philippe Nguemeta · Kouamé Hyacinthe Kouakou<small>Comité de lecture</small></p></div>
+    </div>
+  </div>
+</section>
+
+<section id="activites" class="act">
+  <div class="wrap">
+    <div class="eyebrow">Activités</div>
+    <h2>Plan triennal <em>2025 – 2028</em></h2>
+    <div class="phases">
+      <div class="ph"><div class="no">I</div><div class="yr">2025 – 2026</div><h3>Refonder</h3><ul><li>Installation du bureau et des comités</li><li>Relance de la revue <i>Conséquence</i></li><li>Nouvelle identité et site du CIAP</li></ul></div>
+      <div class="ph"><div class="no">II</div><div class="yr">2026 – 2027</div><h3>Rassembler</h3><ul><li>Assemblée générale du CIAP</li><li>Réseau des sociétés nationales</li><li>Séminaires et journées d’étude</li></ul></div>
+      <div class="ph"><div class="no">III</div><div class="yr">2027 – 2028</div><h3>Rayonner</h3><ul><li>Congrès panafricain de philosophie</li><li>Présence africaine au Congrès mondial</li><li>Publications et partenariats</li></ul></div>
+    </div>
+    <div class="agenda">
+      <div class="ev"><div class="d">AG</div><div class="w">Date à fixer</div><p>Assemblée générale : statuts, programme et adhésions.</p></div>
+      <div class="ev"><div class="d">2028</div><div class="w">Addis-Abeba</div><p>Congrès panafricain de philosophie.</p></div>
+      <div class="ev"><div class="d">16 – 23.08</div><div class="w">Tokyo · 2028</div><p>XXVI<sup>e</sup> Congrès mondial de philosophie.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="adherer">
+  <div class="wrap join">
+    <div class="reveal">
+      <div class="eyebrow">Adhérer</div>
+      <h2>Rejoindre <em>le Conseil</em></h2>
+      <p class="lead">Les membres du CIAP accèdent aux articles de <i>Conséquence</i> dès leur parution, participent à l’assemblée générale et aux congrès.</p>
+      <div class="tiers">
+        <div class="tier"><div class="no">I</div><div><h3>Membre institutionnel</h3><p>Sociétés savantes, départements, centres de recherche.</p></div></div>
+        <div class="tier"><div class="no">II</div><div><h3>Membre individuel</h3><p>Enseignants-chercheurs et chercheurs indépendants.</p></div></div>
+        <div class="tier"><div class="no">III</div><div><h3>Jeune chercheur</h3><p>Doctorantes, doctorants et jeunes docteurs.</p></div></div>
+      </div>
+    </div>
+    <form id="f" novalidate>
+      <div class="row">
+        <div><label for="n">Nom et prénom</label><input id="n"></div>
+        <div><label for="e">Courriel</label><input id="e" type="email"></div>
+      </div>
+      <div class="row">
+        <div><label for="p">Pays</label><input id="p"></div>
+        <div><label for="t">Adhésion</label><select id="t"><option>Membre individuel</option><option>Membre institutionnel</option><option>Jeune chercheur</option></select></div>
+      </div>
+      <label for="i">Institution ou société</label><input id="i">
+      <label for="m">Message</label><textarea id="m" rows="3"></textarea>
+      <div style="margin-top:28px"><button class="btn red" type="submit">Envoyer ma demande</button></div>
+      <p class="note">Maquette : le formulaire n’envoie encore aucune donnée.</p>
+      <div class="ok" id="ok">Merci. Dans la version en ligne, votre demande sera transmise au secrétariat général.</div>
+    </form>
+  </div>
+</section>
+
+<div class="social">
+  <div class="wrap">
+    <div><h3>Suivre le CIAP</h3><p>Annonces, appels à contributions et vie du Conseil.</p></div>
+    <a class="btn" href="https://www.facebook.com/profile.php?id=61586312145628" target="_blank" rel="noopener">Page Facebook du CIAP</a>
+  </div>
+</div>
+</main>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="cols">
+      <div><img src="assets/logo-white.png" alt="CIAP"><p>Conseil Inter-Africain de Philosophie<br>Inter-African Council for Philosophy<br>Fédération des sociétés africaines de philosophie</p><p style="margin-top:10px"><a href="https://africanphilosophysociety.org/" target="_blank" rel="noopener" style="text-decoration:underline">African Philosophy Society</a> · versant anglophone</p></div>
+      <div><h4>Le CIAP</h4><ul><li><a href="#federer">Fédérer</a></li><li><a href="#histoire">Histoire</a></li><li><a href="#cotonou">Cotonou 2025</a></li><li><a href="#activites">Activités</a></li></ul></div>
+      <div><h4>Revue</h4><ul><li><a href="#revue">Numéro 2026</a></li><li><a href="#revue">Politique d’accès</a></li><li><a href="#revue">Comités</a></li></ul></div>
+      <div><h4>Contact</h4><ul><li>ciap.philosophie@gmail.com</li><li>Secrétariat général</li><li><a href="https://www.facebook.com/profile.php?id=61586312145628" target="_blank" rel="noopener">Facebook</a></li></ul></div>
+    </div>
+    <div class="bot"><span>© 2026 Conseil Inter-Africain de Philosophie</span><span class="draft">Maquette · version de travail pour le comité</span></div>
+  </div>
+</footer>
+
+<div class="lb" id="lb"><img id="lbi" alt=""><p id="lbc"></p></div>
+<div class="modal" id="md" role="dialog" aria-modal="true">
+  <div class="box">
+    <button class="x" id="mx" aria-label="Fermer">&times;</button>
+    <div class="eyebrow">Article sous embargo</div>
+    <h3>Demander l’accès</h3>
+    <p class="art-t" id="mt"></p>
+    <p style="font-size:15px;color:var(--muted);margin-top:14px">Cet article est réservé aux membres du CIAP jusqu’au <b id="md-date"></b>, date de son passage en libre accès. Les membres peuvent le recevoir dès maintenant sur demande auprès du secrétariat.</p>
+    <label for="me">Votre courriel</label><input id="me" type="email">
+    <div style="margin-top:22px;display:flex;gap:12px;flex-wrap:wrap"><button class="btn red" id="ms">Envoyer la demande</button><a class="btn dark" href="#adherer" id="mj">Adhérer</a></div>
+    <div class="ok" id="mok">Maquette : la demande sera transmise au secrétariat dans la version en ligne.</div>
+  </div>
+</div>
+
+<script>
+/* ---- Réglages de la revue ---- */
+var PARUTION = '2026-12-01';   // date de parution du numéro (à confirmer par le comité)
+var EMBARGO_MOIS = 12;
+var ARTICLES = [
+ {r:'Ouverture',t:'Présentation du numéro',a:'Ulrich Metende et Yannick Essengue',p:9,l:'FR',libre:true,pdf:'articles/consequence-2026-presentation.pdf'},
+ {r:'Hommages à Paulin Hountondji',t:'Paulin J. Hountondji : un honnête philosophe',a:'Tanella Boni',p:15,l:'FR'},
+ {r:'Hommages à Paulin Hountondji',t:'En a-t-on fini avec l’extraversion ?',a:'Seloua Luste Boulbina',p:23,l:'FR'},
+ {r:'Hommages à Paulin Hountondji',t:'Philosophy in Language: A Tribute for Paulin Hountondji',a:'Mark Sanders',p:31,l:'EN'},
+ {r:'Hommages à Paulin Hountondji',t:'Paulin Hountondji, en avance',a:'Michèle Gendreau-Massaloux',p:39,l:'FR'},
+ {r:'Paulin Hountondji : un « combat pour le sens »',t:'Changement du front de la philosophie africaine. Libération du discours et sociologie de la science à la périphérie',a:'Yaovi Akakpo',p:53,l:'FR'},
+ {r:'Paulin Hountondji : un « combat pour le sens »',t:'Hountondji, une philosophie du compromis : penser autrement la vie politique en Afrique',a:'Kouamé Hyacinthe Kouakou',p:89,l:'FR'},
+ {r:'Paulin Hountondji : un « combat pour le sens »',t:'Paulin Hountondji : sens et combats d’une vie',a:'Béatrice Afiavi Agbo et Paul Christian Kiti',p:107,l:'FR'},
+ {r:'Paulin Hountondji : un « combat pour le sens »',t:'Réflexion sur le texte de Paulin Hountondji de 2020 : « Le retour à l’humain comme condition de la paix mondiale ? »',a:'Abel Kouvouama',p:119,l:'FR'},
+ {r:'Paulin Hountondji : un « combat pour le sens »',t:'L’économie des savoirs chez Paulin J. Hountondji. Dé-marginalisation et transversalité critique',a:'Ulrich Metende',p:133,l:'FR'},
+ {r:'Dialogues critiques et fécondité conceptuelle',t:'Décoloniser la philosophie : dans quelle direction ou dans quel sens ?',a:'Mahamadé Savadogo',p:151,l:'FR'},
+ {r:'Dialogues critiques et fécondité conceptuelle',t:'Paulin Hountondji et l’émergence d’une pensée critique universelle',a:'Roland Techou',p:167,l:'FR'},
+ {r:'Dialogues critiques et fécondité conceptuelle',t:'« Je n’ai pas osé courir pour le rattraper ». Paulin Hountondji et Paul Ricœur',a:'Christian Berner',p:185,l:'FR'},
+ {r:'Dialogues critiques et fécondité conceptuelle',t:'Paulin Hountondji, penseur décolonial ?',a:'Sètondji Paterne Bossoussi Agbanninhin',p:193,l:'FR'},
+ {r:'Dialogues critiques et fécondité conceptuelle',t:'Borrowing from the Elders: “Back to the Things Themselves”. Phenomenology in Perspective, Paulin Hountondji and Kwasi Wiredu',a:'D. A. Masolo',p:221,l:'EN'},
+ {r:'Recensions',t:'Paulin J. Hountondji (dir.), Les savoirs endogènes. Pistes pour une recherche',a:'Yannick Essengue',p:247,l:'FR'},
+ {r:'Recensions',t:'Paulin J. Hountondji, Combats pour le sens. Un itinéraire africain',a:'Yannick Essengue',p:253,l:'FR'}
+];
+/* ---- Logique d'embargo ---- */
+var lock='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="10" rx="1"/><path d="M8 11V7a4 4 0 0 1 8 0"/></svg>';
+var unl='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="10" rx="1"/><path d="M8 11V7a4 4 0 0 1 7.5-2"/></svg>';
+var fin=new Date(PARUTION); fin.setMonth(fin.getMonth()+EMBARGO_MOIS);
+var fmt=function(d){return d.toLocaleDateString('fr-FR',{day:'numeric',month:'long',year:'numeric'})};
+document.getElementById('oaDate').textContent=fmt(fin);
+var now=new Date(), filt='all';
+function esc(s){return s.replace(/[&<>]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;'}[c]})}
+function render(){
+  var h='',cur='';
+  ARTICLES.forEach(function(x,i){
+    var open=x.libre||now>=fin;
+    if(filt==='open'&&!open||filt==='emb'&&open)return;
+    if(x.r!==cur){cur=x.r;h+='<div class="rub">'+esc(cur)+'</div>';}
+    var acc=open
+      ?'<span class="chip open">'+unl+'Libre accès</span>'+(x.pdf?'<a href="'+x.pdf+'" target="_blank" rel="noopener">Lire le PDF</a>':'<span class="d">PDF à venir</span>')
+      :'<span class="chip emb">'+lock+'Embargo</span><button data-i="'+i+'">Demander l’accès</button>';
+    h+='<div class="art"><div><div class="t">'+esc(x.t)+'</div><div class="a">'+esc(x.a)+'<i>p. '+x.p+' · '+x.l+'</i></div></div><div class="acc">'+acc+'</div></div>';
+  });
+  document.getElementById('toc').innerHTML=h;
+}
+render();
+document.getElementById('flt').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;filt=b.dataset.f;this.querySelectorAll('button').forEach(function(x){x.classList.toggle('on',x===b)});render();});
+var md=document.getElementById('md');
+document.getElementById('toc').addEventListener('click',function(e){var b=e.target.closest('button[data-i]');if(!b)return;document.getElementById('mt').textContent=ARTICLES[b.dataset.i].t;document.getElementById('md-date').textContent=fmt(fin);document.getElementById('mok').style.display='none';md.classList.add('on');});
+document.getElementById('mx').onclick=function(){md.classList.remove('on')};
+md.addEventListener('click',function(e){if(e.target===md)md.classList.remove('on')});
+document.getElementById('mj').onclick=function(){md.classList.remove('on')};
+document.getElementById('ms').onclick=function(){document.getElementById('mok').style.display='block'};
+document.getElementById('tog').onclick=function(){var e=document.getElementById('exg');e.classList.toggle('open');this.textContent=e.classList.contains('open')?'Replier le texte':'Lire le texte intégral'};
+document.getElementById('gal').addEventListener('click',function(e){var f=e.target.closest('figure');if(!f)return;var i=f.querySelector('img');document.getElementById('lbi').src=i.src;document.getElementById('lbi').alt=i.alt;document.getElementById('lbc').textContent=f.querySelector('figcaption').textContent+' — Photo : Gilles-Christ Codjo';document.getElementById('lb').classList.add('on')});
+document.getElementById('lb').onclick=function(){this.classList.remove('on')};
+document.getElementById('f').addEventListener('submit',function(e){e.preventDefault();document.getElementById('ok').style.display='block';});
+/* header + menu + reveal */
+var hd=document.getElementById('hd');
+function sc(){hd.classList.toggle('solid',window.scrollY>40)}sc();window.addEventListener('scroll',sc,{passive:true});
+document.getElementById('bg').onclick=function(){document.getElementById('menu').classList.toggle('open');hd.classList.add('solid')};
+document.querySelectorAll('#menu a').forEach(function(a){a.addEventListener('click',function(){document.getElementById('menu').classList.remove('open')})});
+if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target)}})},{threshold:.12});document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});}else{document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in')})}
+</script>
+</body>
+</html>
