@@ -605,4 +605,11 @@ footer h4,.eth-yr,.ptl,.ini{color:var(--gold-l)!important}
 .afmap.foot .cty{stroke:var(--night)!important}
 .afmap.foot .cty.on2{fill:#fff!important}
 .afmap.foot .cty.on1{fill:var(--gold)!important}
+/* boutons : jeu entre l'or et le rouge du logo */
+.btn{transition:background .25s,color .25s,border-color .25s!important}
+.btn.red,.menu a.cta{background:var(--logo-red)!important;border-color:var(--logo-red)!important;color:#fff!important}
+.btn.red:hover,.menu a.cta:hover{background:var(--gold)!important;border-color:var(--gold)!important;color:var(--night)!important}
+.btn.white,.social .btn,.callout .btn,.fbbig{background:var(--gold)!important;border-color:var(--gold)!important;color:var(--night)!important}
+.btn.white:hover,.social .btn:hover,.callout .btn:hover,.fbbig:hover{background:var(--logo-red)!important;border-color:var(--logo-red)!important;color:#fff!important}
+.btn.dark:hover,.btn.line:hover{background:var(--logo-red)!important;border-color:var(--logo-red)!important;color:#fff!important}
 @media (max-width:980px){.topbar .tb-l{display:none}.topbar .wrap{justify-content:flex-end}}
