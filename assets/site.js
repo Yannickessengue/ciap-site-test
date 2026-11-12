@@ -131,5 +131,5 @@ function gtInit(){new google.translate.TranslateElement({pageLanguage:'fr',inclu
   var miss=['r1','r3','r6'].filter(function(k){return !document.getElementById(k).value.trim()});
   if(miss.length||!document.getElementById('r12').checked){alert('Merci de renseigner le nom, le pays, le courriel et d’accepter la politique de confidentialité.');return;}
   var body='Demande d’enregistrement auprès du CIAP\n\n';Object.keys(labels).forEach(function(k){body+=labels[k]+' : '+document.getElementById(k).value+'\n'});
-  location.href='mailto:ciap.philosophie@gmail.com?subject='+encodeURIComponent('Enregistrement – '+document.getElementById('r1').value+' ('+document.getElementById('r3').value+')')+'&body='+encodeURIComponent(body);
+  location.href='mailto:contact@ciapphilo.org?subject='+encodeURIComponent('Enregistrement – '+document.getElementById('r1').value+' ('+document.getElementById('r3').value+')')+'&body='+encodeURIComponent(body);
   document.getElementById('regok').style.display='block';});})();
